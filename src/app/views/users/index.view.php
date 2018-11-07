@@ -15,9 +15,9 @@
                             <thead>
                             <tr>
                                 <th>voornaam</th>
-                                <th>achternaam</th>
-                                <th>rol</th>
+                                <th>achternaam
                                 <th>email</th>
+                                <th>rol</th>
                                 <th>telefoonnummer</th>
                                 <th>Beheer</th>
                             </tr>
@@ -37,21 +37,12 @@
                                                         class="fas fa-hammer"></i>
                                             </button>
                                         </form>
-                                        <?php //if ($user->isUserBanned() == false): ?>
                                         <form action="<?= $prefix ?>/users/ban" method="POST">
                                             <input type="hidden" name="user_id" value="<?= $user->getId() ?>">
                                             <button type="submit" class="btn btn-secondary"><i
                                                         class="fas fa-gavel"></i>
                                             </button>
                                         </form>
-                                        <?php //else:?>
-<!--                                        <form action="--><?//= $prefix ?><!--/users/unban" method="post">-->
-<!--                                            <input type="hidden" name="user_id" value="--><?//= $user->getId() ?><!--">-->
-<!--                                            <button type="submit" class="btn btn-secondary"><i-->
-<!--                                                        class="fas fa-gavel"></i>-->
-<!--                                            </button>-->
-<!--                                        </form>-->
-                                        <?php ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

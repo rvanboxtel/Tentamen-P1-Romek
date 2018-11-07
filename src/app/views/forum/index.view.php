@@ -7,17 +7,21 @@
                         <div class="card-body">
                             <table class="table table-striped">
                                 <thead>
-                                <th></th>
-
+                                <th>Name</th>
+                                <th>Description</th>
                                 </thead>
                                 <tbody>
                                 <?php foreach ($posts as $post): ?>
-                                <tr>
-
-                                    <td> <?php $post->getName()?> </td>
-                                    <td> <?php $post->getDesc()?> </td>
-
-                                </tr>
+                                    <tr>
+                                        <td nowrap="true"><strong><?= $post->getName() ?></strong></td>
+                                        <td><?= $post->getDesc() ?></td>
+                                        <td>
+                                            <form action="<?= $prefix ?>/forum/build" method="GET">
+                                                <input type="hidden" name="id" value="<?= $post->getId() ?>">
+                                                <button type="submit" class="btn btn-secondary">Go to Build</i></button>
+                                            </form>
+                                        </td>
+                                    </tr>
                                 <?php endforeach; ?>
                                 </tbody>
                             </table>

@@ -11,7 +11,7 @@ namespace Romek\app\models\repositories;
 use romek\app\models\Post;
 use romek\framework\App;
 
-// Repository for comments
+//Repository for posts
 
 final class PostRepository
 {

@@ -25,6 +25,6 @@ $router->post('users/destroy', 'UsersController@destroy');
 
 // Forums
 $router->get('forum', 'ForumController@index');
-
+$router->get('forum/build', 'ForumController@build');
 //Moderation Panels
 $router->get('moderation', 'ModerationController@index');

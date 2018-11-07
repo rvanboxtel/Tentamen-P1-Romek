@@ -27,4 +27,11 @@ final class ForumController
     {
         View::load('forum/index', ['posts' => PostRepository::getAllPosts(),]);
     }
+    public function build()
+    {
+        View::load('forum/build', [
+
+            '' => CommentRepository::class
+        ]);
+    }
 }
