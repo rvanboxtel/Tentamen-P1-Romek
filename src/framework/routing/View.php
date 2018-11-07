@@ -34,8 +34,8 @@ final class View
         $body = "src/app/views/{$name}.view.php";
 
         //if the user exists get the information from a logged in user, or return false
-        $userSession = (new \Team13CD\framework\authentication\Authentication())->checkIfLoggedIn() ? (new \Team13CD\framework\authentication\Authentication())->user() : false;
-        $_SERVER['HTTP_HOST'] === 'adsd.clow.nl' ? $prefix = '/~2018_p1_13/P1_OOAPP_Opdracht' : $prefix = '';
+        $userSession = (new \Romek\framework\authentication\Authentication())->checkIfLoggedIn() ? (new \Romek\framework\authentication\Authentication())->user() : false;
+        $_SERVER['HTTP_HOST'] === 'adsd.clow.nl' ? $prefix = '/~s1127680/P1_OOAPP_Tentamen' : $prefix = '';
 
         //extract it for the master.view.php
         if (!empty($data)) {

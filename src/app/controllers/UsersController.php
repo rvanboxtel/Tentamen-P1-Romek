@@ -13,7 +13,7 @@ final class UsersController
 {
     public function __construct()
     {
-        (new Middleware())->mustHaveRole(RolesRepository::BEHEERDER);
+        (new Middleware())->mustHaveRole(RolesRepository::Admin);
     }
 
     /**
@@ -49,17 +49,25 @@ final class UsersController
     public function update()
     {
         UserRepository::updateById((int)$_POST['user_id'], [
-            'first_name' => $_POST['firstName'],
-            'last_name' => $_POST['lastName'],
+            'fname' => $_POST['fname'],
+            'lname' => $_POST['lname'],
             'email' => $_POST['email'],
-            'mobile' => $_POST['mobile'] ?? null,
-            'date_of_birth' => $_POST['dateOfBirth'] ?? null,
-            'nickname' => $_POST['nickname'] ?? null,
-            'picture' => empty($_FILES['uploadedPicture']['tmp_name']) ? null : $_FILES['uploadedPicture']['tmp_name'],
-            'reason' => $_POST['reason'] ?? null
+            'mobile' => $_POST['mobile'],
         ]);
 
-        RolesRepository::update((int)$_POST['user_id'], (int)$_POST['role_id']);
+        RolesRepository::update((int)$_POST['userid'], (int)$_POST['roleid']);
+
+        View::redirect('users');
+    }
+
+    /**
+     * Bans a member from using his account
+     *
+     * @throws Exception
+     */
+    public function ban()
+    {
+        UserRepository::ban((int)$_POST['user_id']);
 
         View::redirect('users');
     }

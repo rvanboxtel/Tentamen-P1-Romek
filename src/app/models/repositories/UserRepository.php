@@ -14,55 +14,30 @@ final class UserRepository extends User
      * Insert a user into the database
      *
      * @param int $rolesId
-     * @param string $firstName
-     * @param string $lastName
+     * @param string $fname
+     * @param string $lname
      * @param string $email
      * @param string $password
-     * @param null|string $mobile
-     * @param null|string $dateOfBirth
-     * @param null|string $nickname
-     * @param null|string $reason
-     * @param null|string $uploadedPictureTempLocation
-     * @param null|string $mimeContentType
+     * @param string $mobile
      * @throws \Exception
      */
     public static function store(
         int $rolesId,
-        string $firstName,
-        string $lastName,
+        string $fname,
+        string $lname,
         string $email,
         string $password,
-        ?string $mobile,
-        ?string $dateOfBirth,
-        ?string $nickname,
-        ?string $reason,
-        ?string $uploadedPictureTempLocation,
-        ?string $mimeContentType
+        string $mobile
     )
     {
         App::get('database')->insert('users', [
-            'roles_id' => $rolesId,
-            'first_name' => $firstName,
-            'last_name' => $lastName,
+            'roleid' => $rolesId,
+            'fname' => $fname,
+            'lname' => $lname,
             'email' => $email,
             'password' => password_hash($password, PASSWORD_DEFAULT),
-            'mobile' => $mobile,
-            'date_of_birth' => $dateOfBirth,
-            'nickname' => $nickname,
-            'reason' => $reason
+            'mobile' => $mobile
         ]);
-
-        if (!is_null($uploadedPictureTempLocation)) {
-            $pictureStream = fopen($uploadedPictureTempLocation, "rb");
-            $queryBuilder = App::get('database');
-
-            $statement = $queryBuilder->getPdo()->prepare("UPDATE users SET picture = :picture, mime_content_type = :mime_content_type WHERE id = :user_id");
-            $statement->bindParam(':picture', $pictureStream, PDO::PARAM_LOB);
-            $statement->bindParam(':mime_content_type', $mimeContentType);
-            $statement->bindParam(':user_id', App::get('database')->getPdo()->lastInsertId());
-
-            $statement->execute();
-        }
     }
 
     /**
@@ -79,6 +54,18 @@ final class UserRepository extends User
                     'column' => 'is_deleted',
                     'condition' => '=',
                     'value' => false,
+                ]
+            ]
+        );
+    }
+    public static function getAllBannedUsers(): array
+    {
+        return App::get('database')->selectAll('users', 'User',
+            [
+                [
+                    'column' => 'is_banned',
+                    'condition' => '=',
+                    'value' => true,
                 ]
             ]
         );
@@ -116,28 +103,28 @@ final class UserRepository extends User
     public static function updateById(int $userId, array $parameters)
     {
         foreach ($parameters as $key => $value) {
-            if (!is_null($key) && $key === 'picture' && !is_null($value)) {
-                $pictureStream = fopen($value, "rb");
-                $queryBuilder = App::get('database');
-
-                $mimeContentType = mime_content_type($_FILES['uploadedPicture']['tmp_name']);
-
-                $statement = $queryBuilder->getPdo()->prepare("UPDATE users SET picture = :picture, mime_content_type = :mime_content_type WHERE id = :user_id");
-                $statement->bindParam(':picture', $pictureStream, PDO::PARAM_LOB);
-                $statement->bindParam(':mime_content_type', $mimeContentType);
-                $statement->bindParam(':user_id', $userId);
-
-                $statement->execute();
-            } else {
-                App::get('database')->update('users', $key, $value, [
-                    [
-                        'column' => 'id',
-                        'condition' => '=',
-                        'value' => $userId
-                    ]
-                ]);
-            }
+            App::get('database')->update('users', $key, $value, [
+                [
+                    'column' => 'id',
+                    'condition' => '=',
+                    'value' => $userId
+                ]
+            ]);
         }
+    }
+
+    /**
+     * @param int $userId
+     * @throws \Exception
+     */
+    public static function ban(int $userId) {
+        App::get('database')->update('users', 'is_banned', true, [
+            [
+                'column' => 'id',
+                'condition' => '=',
+                'value' => $userId
+            ]
+        ]);
     }
 
     /**

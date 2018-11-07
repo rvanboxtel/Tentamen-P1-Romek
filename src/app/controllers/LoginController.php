@@ -41,13 +41,24 @@ final class LoginController
      */
     public function store()
     {
-        if (!$this->authentication->checkIfLoggedIn()) {
-            $this->authentication->login($_POST['email'], $password = $_POST['password']);
+        // First looks to see if a user is banned or not
+        if (!$this->authentication->checkIfUserIsBanned($_POST['email'])) {
+            if (!$this->authentication->checkIfLoggedIn()) {
+                $this->authentication->login($_POST['email'], $password = $_POST['password']);
 
-            View::redirect('');
+                View::redirect('');
+            }
+            View::redirect('login');
         }
+        // if user is banned they get directed to a banned screen, and are forced to make a new account if they want to log in
+       else {
+           View::redirect('banned');
+       }
 
-        View::redirect('login');
+    }
+// loads the banned page
+    public function banned(){
+        View::load('login/banned');
     }
 
     /**

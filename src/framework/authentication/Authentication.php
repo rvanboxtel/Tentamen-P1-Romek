@@ -50,6 +50,21 @@ final class Authentication
     }
 
     /**
+     * Checks if the user is banned
+     *
+     * @param string $email
+     * @return bool
+     */
+    public function checkIfUserIsBanned(string $email)
+    {
+        foreach (UserRepository::getAllBannedUsers() as $bannedUsers) {
+            if ($bannedUsers->getEmail() === $email) {
+                return true;
+            }
+        }
+    }
+
+    /**
      * Sign a user in
      *
      * @param string $email
@@ -59,6 +74,7 @@ final class Authentication
     public function login(string $email, string $password)
     {
         foreach (UserRepository::getAllActiveUsers() as $userFromDatabase) {
+
             if ($userFromDatabase->getEmail() === $email && password_verify($password, $userFromDatabase->getPassword())) {
 
                 //set the session to the user object (in other words; log the user in)
@@ -70,7 +86,8 @@ final class Authentication
     /**
      *  Sign a user out
      */
-    public function logout()
+    public
+    function logout()
     {
         $this->userSession->destroy();
     }

@@ -18,9 +18,8 @@
             crossorigin="anonymous"></script>
 
     <!-- Fontawesome / icons -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+          integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Select2  -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
@@ -30,15 +29,11 @@
 
     <?php if (empty($prefix)): ?>
         <style>
-            
+
         </style>
     <?php else: ?>
         <style>
-            body {
-                background: url("/~2018_p1_13/P1_OOAPP_Opdracht/public/images/gezinshuis_logo/achtergrond/GezinshuisRegterink_achtergrond.png");
-                background-size: cover;
-                background-repeat: repeat-x;
-            }
+
         </style>
     <?php endif; ?>
 

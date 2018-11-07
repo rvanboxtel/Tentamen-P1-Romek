@@ -14,41 +14,44 @@
                         <table class="table table-striped">
                             <thead>
                             <tr>
-                                <th></th>
                                 <th>voornaam</th>
                                 <th>achternaam</th>
-                                <th>bijnaam</th>
                                 <th>rol</th>
                                 <th>email</th>
                                 <th>telefoonnummer</th>
-                                <th>geboortedatum</th>
-                                <th>reden</th>
-                                <th>bewerk</th>
+                                <th>Beheer</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php foreach ($users as $user): ?>
                                 <tr>
-                                    <?php if (!empty($user->getPicture())): ?>
-                                        <td><img height="50px" width="50px" src="<?= $user->getPicture() ?>"></td>
-                                    <?php else: ?>
-                                        <td></td>
-                                    <?php endif; ?>
                                     <td> <?= $user->getFirstName() ?> </td>
                                     <td> <?= $user->getLastName() ?> </td>
-                                    <td> <?= $user->getNickname() ?> </td>
-                                    <td> <?= $roles::getUserRole((int)$user->getId())->getDescription() ?> </td>
                                     <td> <?= $user->getEmail() ?> </td>
+                                    <td> <?= $roles::getUserRole((int)$user->getId())->getDescription() ?> </td>
                                     <td> <?= $user->getMobile() ?> </td>
-                                    <td> <?= $user->getDateOfBirth() ?> </td>
-                                    <td> <?= $user->getReason() ?> </td>
                                     <td>
                                         <form action="<?= $prefix ?>/users/edit" method="GET">
                                             <input type="hidden" name="user_id" value="<?= $user->getId() ?>">
                                             <button type="submit" class="btn btn-secondary"><i
-                                                        class="fas fa-edit"></i>
+                                                        class="fas fa-hammer"></i>
                                             </button>
                                         </form>
+                                        <?php //if ($user->isUserBanned() == false): ?>
+                                        <form action="<?= $prefix ?>/users/ban" method="POST">
+                                            <input type="hidden" name="user_id" value="<?= $user->getId() ?>">
+                                            <button type="submit" class="btn btn-secondary"><i
+                                                        class="fas fa-gavel"></i>
+                                            </button>
+                                        </form>
+                                        <?php //else:?>
+<!--                                        <form action="--><?//= $prefix ?><!--/users/unban" method="post">-->
+<!--                                            <input type="hidden" name="user_id" value="--><?//= $user->getId() ?><!--">-->
+<!--                                            <button type="submit" class="btn btn-secondary"><i-->
+<!--                                                        class="fas fa-gavel"></i>-->
+<!--                                            </button>-->
+<!--                                        </form>-->
+                                        <?php ?>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

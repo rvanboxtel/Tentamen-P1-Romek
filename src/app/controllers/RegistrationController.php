@@ -12,7 +12,6 @@ final class RegistrationController
 {
     public function __construct()
     {
-        (new Middleware())->mustHaveRole(RolesRepository::BEHEERDER);
     }
 
     /**
@@ -34,17 +33,12 @@ final class RegistrationController
     public function store()
     {
         UserRepository::store(
-            (int)$_POST['rolesId'],
-            $_POST['firstName'],
-            $_POST['lastName'],
+            1,
+            $_POST['fname'],
+            $_POST['lname'],
             $_POST['email'],
             $_POST['password'],
-            $_POST['mobile'] ?? null,
-            $_POST['dateOfBirth'] ?? null,
-            $_POST['nickname'] ?? null,
-            $_POST['reason'] ?? null,
-            empty($_FILES['uploadedPicture']['tmp_name']) ? null : $_FILES['uploadedPicture']['tmp_name'],
-            empty($_FILES['uploadedPicture']['tmp_name']) ? null : mime_content_type($_FILES['uploadedPicture']['tmp_name'])
+            $_POST['mobile']
         );
 
         View::redirect('users');

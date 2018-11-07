@@ -1,8 +1,8 @@
 {
   "autoload": {
     "psr-4": {
-      "Team13CD\\app\\": "src/app",
-      "Team13CD\\framework\\": "src/framework"
+      "Romek\\app\\": "src/app",
+      "Romek\\framework\\": "src/framework"
     }
   }
 }

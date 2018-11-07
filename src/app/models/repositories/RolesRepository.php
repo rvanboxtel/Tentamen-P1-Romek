@@ -9,10 +9,9 @@ use Romek\framework\App;
 
 class RolesRepository
 {
-    public const BEHEERDER = 1;
-    public const KIND = 2;
-    public const OUDER_VOOGD = 3;
-    public const WERKNEMER = 4;
+    public const Gebruiker = 1;
+    public const Moderator = 2;
+    public const Admin = 3;
 
     /**
      * Retrieve all roles from the database in an array of Role objects
@@ -33,7 +32,7 @@ class RolesRepository
      */
     public static function update(int $userId, int $roleId)
     {
-        App::get('database')->update('users', 'roles_id', $roleId, [
+        App::get('database')->update('users', 'roleid', $roleId, [
             [
                 'column' => 'id',
                 'condition' => '=',
@@ -70,7 +69,7 @@ class RolesRepository
                 [
                     'column' => 'id',
                     'condition' => '=',
-                    'value' => $user->roles_id,
+                    'value' => $user->roleid,
                 ]
             ]
         )[0]; //returns an array with ONE object, by "[0]" I get the first (and only) object from the array

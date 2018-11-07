@@ -175,7 +175,7 @@ final class QueryBuilder
             return $statement->fetchAll(PDO::FETCH_CLASS);
         }
 
-        $classPath = "Team13CD\\app\\models\\{$intoClass}";
+        $classPath = "Romek\\app\\models\\{$intoClass}";
 
         return $statement->fetchAll(PDO::FETCH_CLASS, $classPath);
     }

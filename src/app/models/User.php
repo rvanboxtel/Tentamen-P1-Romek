@@ -36,9 +36,14 @@ class User
     private $mobile;
 
     /**
-    * @var int
-    */
+     * @var int
+     */
     private $roleid;
+
+    /**
+     * @var bool
+     */
+    private $is_banned;
 
     /**
      * @return int
@@ -86,5 +91,21 @@ class User
     public function getMobile(): string
     {
         return $this->mobile;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRole(): int
+    {
+        return $this->roleid;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUserBanned(): boolean
+    {
+        return $this->is_banned;
     }
 }

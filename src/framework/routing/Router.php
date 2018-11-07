@@ -37,8 +37,8 @@ final class Router
      */
     public function get(string $uri, string $controller)
     {
-        $_SERVER['HTTP_HOST'] === 'adsd.clow.nl' ? $prefix = '~2018_p1_13/P1_OOAPP_Opdracht' : $prefix = '';
-        $this->routes['GET'][trim("$prefix/$uri", '/')] = $controller;
+        $_SERVER['HTTP_HOST'] === 'adsd.clow.nl' ? $prefix = '~s1127680/P1_OOAPP_Tentamen' : $prefix = '';
+        $this->routes['GET'][trim("$uri", '/')] = $controller;
     }
 
     /**
@@ -49,8 +49,8 @@ final class Router
      */
     public function post(string $uri, string $controller)
     {
-        $_SERVER['HTTP_HOST'] === 'adsd.clow.nl' ? $prefix = '~2018_p1_13/P1_OOAPP_Opdracht' : $prefix = '';
-        $this->routes['POST'][trim("$prefix/$uri", '/')] = $controller;
+        $_SERVER['HTTP_HOST'] === 'adsd.clow.nl' ? $prefix = '~s1127680/P1_OOAPP_Tentamen' : $prefix = '';
+        $this->routes['POST'][trim("$uri", '/')] = $controller;
     }
 
     /**
@@ -86,7 +86,7 @@ final class Router
      */
     private function callControllerMethod(string $controller, string $method)
     {
-        $controller = "Team13CD\\app\\controllers\\{$controller}";
+        $controller = "Romek\\app\\controllers\\{$controller}";
         $controller = new $controller;
         if (!method_exists($controller, $method)) {
             throw new Exception("Method \"{$method}\"  in \"" . get_class($controller) . "\" does not respond or exist.");
