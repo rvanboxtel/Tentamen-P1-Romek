@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\framework\authentication;
+namespace Romek\framework\authentication;
 
-use Team13CD\app\models\repositories\UserRepository;
-use Team13CD\app\models\User;
+use Romek\app\models\repositories\UserRepository;
+use Romek\app\models\User;
 
 final class Authentication
 {

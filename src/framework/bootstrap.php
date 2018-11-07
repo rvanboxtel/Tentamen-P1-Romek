@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-use Team13CD\framework\App;
-use Team13CD\framework\database\QueryBuilder;
-use Team13CD\framework\database\Connection;
+use Romek\framework\App;
+use Romek\framework\database\QueryBuilder;
+use Romek\framework\database\Connection;
 
 //add config to the container
 App::bind('config', require 'config/config.php');

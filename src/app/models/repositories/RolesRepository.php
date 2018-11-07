@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\app\models\repositories;
+namespace Romek\app\models\repositories;
 
-use Team13CD\app\models\Role;
-use Team13CD\app\models\User;
-use Team13CD\framework\App;
+use Romek\app\models\Role;
+use Romek\app\models\User;
+use Romek\framework\App;
 
 class RolesRepository
 {

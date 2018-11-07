@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\app\models;
+namespace Romek\app\models;
 
 class User
 {

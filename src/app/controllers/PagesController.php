@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\app\controllers;
+namespace Romek\app\controllers;
 
-use Team13CD\framework\App;
-use Team13CD\framework\routing\View;
+use Romek\framework\App;
+use Romek\framework\routing\View;
 
 final class PagesController
 {

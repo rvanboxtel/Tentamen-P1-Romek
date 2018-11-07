@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\app\controllers;
+namespace Romek\app\controllers;
 
-use Team13CD\app\models\repositories\RolesRepository;
-use Team13CD\app\models\repositories\UserRepository;
-use Team13CD\framework\Middleware;
-use Team13CD\framework\routing\View;
+use Romek\app\models\repositories\RolesRepository;
+use Romek\app\models\repositories\UserRepository;
+use Romek\framework\Middleware;
+use Romek\framework\routing\View;
 
 final class RegistrationController
 {

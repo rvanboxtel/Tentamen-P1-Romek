@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\framework;
+namespace Romek\framework;
 
-use Team13CD\app\models\repositories\RolesRepository;
-use Team13CD\framework\authentication\Authentication;
-use Team13CD\framework\routing\View;
+use Romek\app\models\repositories\RolesRepository;
+use Romek\framework\authentication\Authentication;
+use Romek\framework\routing\View;
 
 final class Middleware
 {

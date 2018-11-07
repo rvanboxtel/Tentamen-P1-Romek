@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\app\models;
+namespace Romek\app\models;
 
-use Team13CD\app\models\repositories\RolesRepository;
+use Romek\app\models\repositories\RolesRepository;
 
 final class Role extends RolesRepository
 {

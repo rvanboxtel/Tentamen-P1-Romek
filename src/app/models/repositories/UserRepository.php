@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Team13CD\app\models\repositories;
+namespace Romek\app\models\repositories;
 
 use PDO;
-use Team13CD\app\models\User;
-use Team13CD\framework\App;
-use Team13CD\framework\routing\View;
+use Romek\app\models\User;
+use Romek\framework\App;
+use Romek\framework\routing\View;
 
 final class UserRepository extends User
 {

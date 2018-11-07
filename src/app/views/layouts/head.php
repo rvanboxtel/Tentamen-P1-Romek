@@ -30,11 +30,7 @@
 
     <?php if (empty($prefix)): ?>
         <style>
-            body {
-                background: url("/public/images/gezinshuis_logo/achtergrond/GezinshuisRegterink_achtergrond.png");
-                background-size: cover;
-                background-repeat: repeat-x;
-            }
+            
         </style>
     <?php else: ?>
         <style>
