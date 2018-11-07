@@ -15,7 +15,7 @@ final class Role extends RolesRepository
     /**
      * @var string
      */
-    private $description;
+    private $role;
 
     /**
      * @return int
@@ -30,6 +30,6 @@ final class Role extends RolesRepository
      */
     public function getDescription(): string
     {
-        return $this->description;
+        return $this->role;
     }
 }

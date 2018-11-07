@@ -6,7 +6,6 @@
     </div>
     <div class="row">
         <div class="offset-1 col-10">
-            <img class="homepicture" src="<?= $prefix ?>/public/images/photo-1537536065976-c645a11e9c61.jpg" />
         </div>
     </div>
     <div class="row rowdistance">

@@ -13,12 +13,12 @@ class User
     /**
      * @var string
      */
-    private $first_name;
+    private $fname;
 
     /**
      * @var string
      */
-    private $last_name;
+    private $lname;
 
     /**
      * @var string
@@ -36,29 +36,9 @@ class User
     private $mobile;
 
     /**
-     * @var string
-     */
-    private $date_of_birth;
-
-    /**
-     * @var string
-     */
-    private $nickname;
-
-    /**
-     * @var string
-     */
-    private $picture;
-
-    /**
-     * @var string
-     */
-    private $mime_content_type;
-
-    /**
-     * @var string
-     */
-    private $reason;
+    * @var int
+    */
+    private $roleid;
 
     /**
      * @return int
@@ -73,7 +53,7 @@ class User
      */
     public function getFirstName(): string
     {
-        return $this->first_name;
+        return $this->fname;
     }
 
     /**
@@ -81,7 +61,7 @@ class User
      */
     public function getLastName(): string
     {
-        return $this->last_name;
+        return $this->lname;
     }
 
     /**
@@ -106,53 +86,5 @@ class User
     public function getMobile(): string
     {
         return $this->mobile;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDateOfBirth(): string
-    {
-        return $this->date_of_birth;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNickname(): string
-    {
-        return $this->nickname;
-    }
-
-    /**
-     * Convert the blob into a data image
-     *
-     * @return string
-     */
-    public function getPicture(): string
-    {
-        if (!empty($this->picture)) {
-            $imageData = base64_encode($this->picture);
-            $mimeContentType = $this->getMimeContentType();
-
-            return "data:$mimeContentType;base64,$imageData";
-        }
-        return '';
-    }
-
-    /**
-     * @return string
-     */
-    public function getReason(): string
-    {
-        return $this->reason;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMimeContentType(): string
-    {
-        return $this->mime_content_type;
     }
 }
