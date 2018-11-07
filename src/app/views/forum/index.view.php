@@ -11,12 +11,12 @@
 
                                 </thead>
                                 <tbody>
-                                <?php  foreach ($posts as $post): ?>
+                                <?php foreach ($posts as $post): ?>
                                 <tr>
-                                    <a href="">
+
                                     <td> <?php $post->getName()?> </td>
                                     <td> <?php $post->getDesc()?> </td>
-                                    </a>
+
                                 </tr>
                                 <?php endforeach; ?>
                                 </tbody>

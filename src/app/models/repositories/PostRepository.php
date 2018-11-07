@@ -8,7 +8,7 @@
 
 namespace Romek\app\models\repositories;
 
-use romek\app\models\Posts;
+use romek\app\models\Post;
 use romek\framework\App;
 
 // Repository for comments
@@ -16,14 +16,14 @@ use romek\framework\App;
 final class PostRepository
 {
     /**
-     * Retrieve all Comments for events from the database in an array of Comment objects
+     * Retrieve all Posts to be shown
      *
      * @return array
      * @throws \Exception
      */
     public static function getAllPosts(): array
     {
-        return App::get('database')->selectAll('posts', 'Posts');
+        return App::get('database')->selectAll('posts', 'Post');
 
     }
 

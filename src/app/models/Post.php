@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Romek\app\models;
 
-class Posts
+class Post
 {
     /**
      * @var int

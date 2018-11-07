@@ -9,7 +9,7 @@ use Romek\framework\App;
 
 class RolesRepository
 {
-    public const Gebruiker = 1;
+    public const User = 1;
     public const Moderator = 2;
     public const Admin = 3;
 
