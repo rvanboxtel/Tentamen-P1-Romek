@@ -1,2 +1,4 @@
-# Documentation
-https://github.com/Quincy-de-Jong/P1_Team13CD_SoftwareDevelopment_Docs
+#Inlog Stephan
+Stephan@test.net pass = test
+#inlog Rudy
+Rudy@ruble.net pass= t3

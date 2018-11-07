@@ -58,7 +58,7 @@ final class UsersController
 
         RolesRepository::update((int)$_POST['userid'], (int)$_POST['roleid']);
 
-        View::redirect('users');
+        View::redirect('~s1127680/P1_OOAPP_Tentamen/users');
     }
 
     /**
@@ -70,7 +70,7 @@ final class UsersController
     {
         UserRepository::ban((int)$_POST['user_id']);
 
-        View::redirect('users');
+        View::redirect('~s1127680/P1_OOAPP_Tentamen/users');
     }
 
     /**
@@ -82,6 +82,6 @@ final class UsersController
     {
         UserRepository::destroy((int)$_POST['user_id']);
 
-        View::redirect('users');
+        View::redirect('~s1127680/P1_OOAPP_Tentamen/users');
     }
 }

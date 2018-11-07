@@ -28,9 +28,9 @@ final class LoginController
     public function create()
     {
         if ($this->authentication->checkIfLoggedIn()) {
-            View::redirect('');
+            View::redirect('~s1127680/P1_OOAPP_Tentamen');
         } else {
-            View::load('login/create');
+            View::load('/login/create');
         }
     }
 
@@ -46,19 +46,19 @@ final class LoginController
             if (!$this->authentication->checkIfLoggedIn()) {
                 $this->authentication->login($_POST['email'], $password = $_POST['password']);
 
-                View::redirect('');
+                View::redirect('~s1127680/P1_OOAPP_Tentamen');
             }
-            View::redirect('login');
+            View::redirect('~s1127680/P1_OOAPP_Tentamen/login');
         }
         // if user is banned they get directed to a banned screen, and are forced to make a new account if they want to log in
        else {
-           View::redirect('banned');
+           View::redirect('~s1127680/P1_OOAPP_Tentamen/banned');
        }
 
     }
 // loads the banned page
     public function banned(){
-        View::load('login/banned');
+        View::load('/login/banned');
     }
 
     /**
@@ -70,6 +70,6 @@ final class LoginController
             $this->authentication->logout();
         }
 
-        View::redirect('');
+        View::redirect('~s1127680/P1_OOAPP_Tentamen');
     }
 }

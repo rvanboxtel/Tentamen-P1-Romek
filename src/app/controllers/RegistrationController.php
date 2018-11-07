@@ -33,7 +33,7 @@ final class RegistrationController
     public function store()
     {
         UserRepository::store(
-            1,
+            0,
             $_POST['fname'],
             $_POST['lname'],
             $_POST['email'],
@@ -41,6 +41,6 @@ final class RegistrationController
             $_POST['mobile']
         );
 
-        View::redirect('users');
+        View::redirect('~s1127680/P1_OOAPP_Tentamen/users');
     }
 }

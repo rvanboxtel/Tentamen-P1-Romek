@@ -27,7 +27,7 @@ final class ForumController
      */
     public function index()
     {
-        View::load('forum/index', ['postrepository' => PostRepository::class,]);
+        View::load('/forum/index', ['postrepository' => PostRepository::class,]);
     }
 
     /**
@@ -37,7 +37,7 @@ final class ForumController
     {
         $test = new Middleware();
         $test->mustHaveOneofRoles([0, 1, 2]);
-        View::load('forum/create');
+        View::load('/forum/create');
     }
 
     /**
@@ -47,7 +47,7 @@ final class ForumController
      */
     public function show()
     {
-        View::load('forum/builds', [
+        View::load('/forum/builds', [
             'idea' => LegoideaRepository::getIdea((int)$_GET['id']),
             'comments' => CommentRepository::getComments((int)$_GET['id']),
         ]);
@@ -66,7 +66,7 @@ final class ForumController
             $_POST['comment']
 
         );
-        View::redirect("builds?id={$_POST['id']}");
+        View::redirect("~s1127680/P1_OOAPP_Tentamen/builds?id={$_POST['id']}");
     }
 
     /**

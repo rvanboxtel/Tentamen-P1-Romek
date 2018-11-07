@@ -73,7 +73,7 @@ final class Middleware
      */
     private function redirectAndExit()
     {
-        View::redirect('');
+        View::redirect('~s1127680/P1_OOAPP_Tentamen');
         exit();
     }
 }
