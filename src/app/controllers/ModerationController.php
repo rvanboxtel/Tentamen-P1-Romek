@@ -9,20 +9,19 @@
 namespace Romek\app\controllers;
 
 use Exception;
-use Romek\app\models\repositories\RolesRepository;
 use Romek\framework\Middleware;
 use Romek\framework\routing\View;
 
 final class ModerationController
 {
+    // requires you to be either a moderator or an admin
     public function __construct()
     {
-        (new Middleware())->mustHaveRole(RolesRepository::Admin);
-//        (new Middleware())->mustHaveRole(RolesRepository::Moderator);
+        (new Middleware())->mustHaveOneofRoles([1,2]);
     }
 
     /**
-     * Show all users
+     * Loads the moderation dashboard
      *
      * @throws Exception
      */

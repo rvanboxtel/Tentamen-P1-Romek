@@ -9,9 +9,9 @@ use Romek\framework\App;
 
 class RolesRepository
 {
-    public const User = 1;
-    public const Moderator = 2;
-    public const Admin = 3;
+    public const User = 0;
+    public const Moderator = 1;
+    public const Admin = 2;
 
     /**
      * Retrieve all roles from the database in an array of Role objects

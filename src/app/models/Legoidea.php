@@ -5,6 +5,7 @@
  * Date: 7-11-2018
  * Time: 11:36 AM
  */
+declare(strict_types=1);
 
 namespace Romek\app\models;
 
@@ -115,6 +116,7 @@ class Legoidea
     {
         return $this->name;
     }
+
     /**
      * @return string
      */
@@ -123,4 +125,100 @@ class Legoidea
         return $this->description;
     }
 
+    /**
+     * @return string
+     */
+    public function getStep1(): string
+    {
+        return $this->step01;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieces1(): string
+    {
+        return $this->pieces01;
+    }
+
+
+    /**
+     * @return string
+     */
+    public function getStep2(): string
+    {
+        return $this->step02;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieces2(): string
+    {
+        return $this->pieces02;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStep3(): string
+    {
+        return $this->step03;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieces3(): string
+    {
+        return $this->pieces03;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStep4(): string
+    {
+        return $this->step04;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieces4(): string
+    {
+        return $this->pieces04;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStep5(): string
+    {
+        return $this->step05;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieces5(): string
+    {
+        return $this->pieces05;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStep6(): string
+    {
+        return $this->step06;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPieces6(): string
+    {
+        return $this->pieces06;
+    }
 }

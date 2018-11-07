@@ -1,9 +1,12 @@
 <?php
 declare(strict_types=1);
 
-//Public pages routes
-$router->get('', 'PagesController@home');
-
+// Forums
+$router->get('', 'ForumController@index');
+$router->get('/builds', 'ForumController@show');
+$router->post('/builds/comment', 'ForumController@comment');
+$router->get('/create', 'ForumController@create');
+$router->post('/create/post', 'ForumController@post');
 
 //Login/logout routes
 $router->get('login', 'LoginController@create');
@@ -17,14 +20,12 @@ $router->post('register', 'RegistrationController@store');
 
 //User routes
 $router->get('users', 'UsersController@index');
-$router->post('users/ban', 'UsersController@ban');
-$router->post('users', 'UsersController@store');
 $router->get('users/edit', 'UsersController@edit');
+$router->post('users', 'UsersController@store');
+$router->post('users/ban', 'UsersController@ban');
 $router->post('users/update', 'UsersController@update');
 $router->post('users/destroy', 'UsersController@destroy');
 
-// Forums
-$router->get('forum', 'ForumController@index');
-$router->get('forum/build', 'ForumController@build');
+
 //Moderation Panels
 $router->get('moderation', 'ModerationController@index');

@@ -53,6 +53,7 @@ final class UsersController
             'lname' => $_POST['lname'],
             'email' => $_POST['email'],
             'mobile' => $_POST['mobile'],
+            'roleid' => $_POST['roleid']
         ]);
 
         RolesRepository::update((int)$_POST['userid'], (int)$_POST['roleid']);

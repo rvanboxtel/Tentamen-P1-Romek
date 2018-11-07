@@ -30,7 +30,7 @@
 
                             <div class="form-group">
                                 <label for="role">rol:</label>
-                                <select id="role" name="role_id" class="form-control js-select2" required>
+                                <select id="role" name="roleid" class="form-control js-select2" required>
                                     <?php foreach ($roles::getAll() as $role): ?>
                                         <option class="form-control"
                                                 value="<?= $role->getId() ?>"><?= $role->getDescription() ?></option>
@@ -53,7 +53,7 @@
 
 
                             <div class="form-group">
-                                <input class="form-control" id="user_id" name="user_id"
+                                <input class="form-control" id="user_id" name="userid"
                                        value="<?= $user->getId() ?>" hidden>
                                 <button type="submit" class="btn btn-primary">bijwerken</button>
                             </div>
