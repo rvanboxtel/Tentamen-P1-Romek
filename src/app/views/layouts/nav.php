@@ -16,7 +16,7 @@
                 <?= $userSession->getEmail() ?>
             </a>
             <div class="dropdown-menu">
-                <?php if ($userSession->getRole() === 2 || $userSession->getRole() === 3) { ?>
+                <?php if ($userSession->getRole() === 1 || $userSession->getRole() === 2) { ?>
                     <a class="dropdown-item" href="<?= $prefix ?>/moderation">Moderation</a><?php } ?>
                 <a class="dropdown-item" href="<?= $prefix ?>/logout">Logout</a>
             </div>
